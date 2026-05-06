@@ -2,3 +2,9 @@
 venv/
 
 src/__pycache__/
+
+src/data_clean/__pycache__/
+
+archive/pokemon_cleaned.csv
+
+archive/cleaning_report.txt
