@@ -1,4 +1,4 @@
-import readcsv
+import data_clean.readcsv as readcsv
 
 # 检查内容合法性
 df = readcsv.read_csv(readcsv.raw_csv_path)

@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 
 try:
-    import readcsv
+    import data_clean.readcsv as readcsv
     RAW_PATH = readcsv.raw_csv_path
 except ImportError:
     RAW_PATH = os.path.join("archive", "pokemon.csv")
