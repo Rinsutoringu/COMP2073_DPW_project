@@ -8,3 +8,9 @@ src/data_clean/__pycache__/
 archive/pokemon_cleaned.csv
 
 archive/cleaning_report.txt
+
+tests/__pycache__/
+
+src/data_visualization/__pycache__/
+
+src/data_analysis/__pycache__/
