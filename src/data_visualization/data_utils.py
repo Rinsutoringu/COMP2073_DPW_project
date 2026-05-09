@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -46,3 +46,29 @@ def prep_box_data(df):
 def prep_correlation(df):
     stat_cols = ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"]
     return df[stat_cols].corr()
+
+
+@st.cache_data
+def get_eda_metrics(df):
+    from data_analysis.pokemon_stats import (
+        attack_speed_correlation,
+        highest_avg_attack_type1,
+        most_common_type1,
+    )
+
+    top_type, _ = most_common_type1(df)
+    best_atk_type, best_atk_val = highest_avg_attack_type1(df)
+    atk_spd_corr = attack_speed_correlation(df)
+
+    return {
+        "most_common_type": top_type,
+        "highest_attack_type": best_atk_type,
+        "highest_attack_value": best_atk_val,
+        "attack_speed_corr": atk_spd_corr
+    }
+
+
+@st.cache_data
+def get_legendary_comparison(df):
+    from data_analysis.pokemon_stats import legendary_vs_nonlegendary
+    return legendary_vs_nonlegendary(df)
