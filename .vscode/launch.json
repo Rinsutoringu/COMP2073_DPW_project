@@ -32,7 +32,10 @@
                 "--server.port", "8501"
             ],
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}\\src"
+            }
         }
 
     ]
