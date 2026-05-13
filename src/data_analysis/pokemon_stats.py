@@ -75,35 +75,16 @@ def main() -> None:
     df = load_data()
 
     top_type, top_count = most_common_type1(df)
-    print("=" * 52)
-    print("  (a) Most Common Type1")
-    print("=" * 52)
-    print(f"  Most Common Type1: {top_type}  ({top_count})")
-    print()
+    print(f"most common type1: {top_type} ({top_count})")
 
     best_type, best_avg = highest_avg_attack_type1(df)
-    print("=" * 52)
-    print("  (b) Highest Average Attack Type1")
-    print("=" * 52)
-    print(f"  {best_type} — average attack = {best_avg:.2f}")
-    print()
+    print(f"highest avg attack type1: {best_type} ({best_avg:.2f})")
 
     corr = attack_speed_correlation(df)
-    direction = "positive" if corr > 0 else ("negative" if corr < 0 else "no linear correlation")
-    print("=" * 52)
-    print("  (c) Attack vs Speed Pearson Correlation")
-    print("=" * 52)
-    print(f"  Pearson r = {corr:.4f}  ->  {direction}")
-    print("  (r > 0 means higher attack tends to pair with higher speed)")
-    print()
+    print(f"attack-speed pearson r: {corr:.4f}")
 
-    comp_df = legendary_vs_nonlegendary(df)
-    print("=" * 52)
-    print("  (d) Legendary vs Non-Legendary — Core Stat Mean Differences")
-    print("=" * 52)
-    print(comp_df.to_string(index=False))
-    print()
-    print("  diff > 0 -> legendary Pokemon is higher in that stat")
+    print("\nlegendary vs non-legendary (mean stats):")
+    print(legendary_vs_nonlegendary(df).to_string(index=False))
 
 
 if __name__ == "__main__":

@@ -75,13 +75,13 @@ def make_correlation_chart(corr):
 
 
 def make_attack_defense_chart(df):
-    df_scatter = df.assign(label=df["is_legendary"].map({True: "Divine Beast", False: "Normal"}))
+    df_scatter = df.assign(label=df["is_legendary"].map({True: "Legendary", False: "Normal"}))
     fig = px.scatter(
         df_scatter,
         x="attack",
         y="defense",
         color="label",
-        color_discrete_map={"Normal": "#457B9D", "Divine Beast": "#E63946"},
+        color_discrete_map={"Normal": "#457B9D", "Legendary": "#E63946"},
         labels={"attack": "Attack", "defense": "Defense"},
         opacity=0.6,
         height=500,

@@ -1,4 +1,4 @@
-﻿import streamlit as st
+import streamlit as st
 
 from charts import (
     make_attack_defense_chart,

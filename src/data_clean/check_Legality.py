@@ -1,28 +1,31 @@
-import data_clean.readcsv as readcsv
+from pathlib import Path
 
-# 检查内容合法性
-df = readcsv.read_csv(readcsv.raw_csv_path)
-print("get first 5 rows of the data:\n")
-print(df.head())
+import pandas as pd
 
-print("\n[check] get last 5 rows of the data:\n")
-print(df.tail())
+RAW_CSV = Path("archive") / "pokemon.csv"
 
-print("\n[check] get the data info:\n")
-print(df.info())
 
-print("\n[check] get the data description:\n")
-print(df.describe())
+def main():
+    df = pd.read_csv(RAW_CSV)
 
-print("\n[check] get the data shape, columns and null values:\n")
-print(df.shape)
+    print("first 5 rows:")
+    print(df.head())
 
-print("\n[check] get the data columns and null values:\n")
-print(df.columns.tolist())
+    print("\nlast 5 rows:")
+    print(df.tail())
 
-print("\n[check] get the data null values:\n")
-print(df.isnull().sum())
+    print("\ninfo:")
+    print(df.info())
 
-# null_rows = df.index[df.isnull().any(axis=1)].tolist()
-# print(null_rows)
+    print("\ndescribe:")
+    print(df.describe())
 
+    print(f"\nshape: {df.shape}")
+    print(f"columns: {df.columns.tolist()}")
+
+    print("\nnull counts:")
+    print(df.isnull().sum())
+
+
+if __name__ == "__main__":
+    main()
